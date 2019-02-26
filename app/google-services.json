@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "185632209991",
+    "firebase_url": "https://fcmmulti.firebaseio.com",
+    "project_id": "fcmmulti",
+    "storage_bucket": "fcmmulti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185632209991:android:4548658facdfe54f",
+        "android_client_info": {
+          "package_name": "mobile.netmera.com.fcmmulti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185632209991-4pe4m9r66v94llr32ihomdhdhr9u54df.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtfk8Tp4oUYYL6qZE_cijTa57p32vNDdM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
