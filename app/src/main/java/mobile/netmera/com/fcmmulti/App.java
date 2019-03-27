@@ -34,6 +34,7 @@ public class App extends Application {
 //        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
 
         Netmera.init(this,PropertiesUtil.gcmSenderId,null);
+//        Netmera.init(this,"561248270199",null);
 
         setNetmeraApiKeyIfHasBeenProvidedBefore();
 
