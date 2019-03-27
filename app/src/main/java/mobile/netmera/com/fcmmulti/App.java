@@ -3,7 +3,9 @@ package mobile.netmera.com.fcmmulti;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -13,7 +15,7 @@ import com.netmera.Netmera;
 
 public class App extends Application {
 
-
+    private final String TAG = "FCMMulti APP";
 
     @Override
     public void onCreate() {
@@ -22,16 +24,20 @@ public class App extends Application {
         initLegacyData();
         Netmera.logging(true);
 
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
-                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
-                .build();
-        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
-        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+//        FirebaseOptions options = new FirebaseOptions.Builder()
+//                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
+//                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
+//                .build();
+//        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
+//        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
 
-        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
+//        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
+
+        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
 
         setNetmeraApiKeyIfHasBeenProvidedBefore();
+
+        Log.i(TAG,"onCreate was called");
 
     }
 
@@ -50,4 +56,6 @@ public class App extends Application {
             Netmera.setApiKey(apiKey);
         }
     }
+
+
 }

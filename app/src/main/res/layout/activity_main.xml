@@ -7,7 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/test_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"/>
+
     <TextView
+        android:layout_below="@+id/test_img"
         android:id="@+id/messages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,13 +35,20 @@
             android:layout_height="wrap_content"
             android:text="firebase event send"
             android:layout_above="@+id/updateUser"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="3dp"/>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/updateUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="update user"
+            android:layout_above="@+id/show_img"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/show_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" download img"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 

@@ -27,8 +27,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'com.netmera:netmera:3.6.2-beta1.275'
+    implementation 'com.netmera:netmera:3.6.2.275'
     implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
 }
 

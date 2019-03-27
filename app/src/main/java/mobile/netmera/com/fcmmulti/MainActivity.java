@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.netmera.Netmera;
 import com.netmera.NetmeraUser;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView messages;
     private AppCompatButton updateUser;
     private AppCompatButton fcm_custom_event;
+    private AppCompatButton show_img;
+    private AppCompatImageView test_img;
+
+    private boolean downloaded = false;
 
 
     @Override
@@ -46,8 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         messages = (TextView)findViewById(R.id.messages);
         updateUser = (AppCompatButton)findViewById(R.id.updateUser);
         fcm_custom_event = (AppCompatButton)findViewById(R.id.fcm_custom_event);
+        show_img = (AppCompatButton)findViewById(R.id.show_img);
+
+        test_img = (AppCompatImageView)findViewById(R.id.test_img);
+
         updateUser.setOnClickListener(this);
         fcm_custom_event.setOnClickListener(this);
+        show_img.setOnClickListener(this);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -176,6 +187,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.fcm_custom_event){
             int nextRandom = new Random().nextInt(3)+1;
             FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_"+nextRandom,null );
+        }else if(v.getId()==R.id.show_img){
+            if(!downloaded){
+            GlideApp.with(this)
+                    .load("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg")
+                    .fitCenter()
+                    .into(test_img);
+
+            downloaded = true;
+            }else{
+                test_img.setImageDrawable(null);
+                downloaded = false;
+            }
         }
     }
 }
