@@ -2,11 +2,9 @@ package mobile.netmera.com.fcmmulti;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatImageView;
+
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,6 +24,11 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Random;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -84,11 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final SharedPreferences pref = getSharedPreferences("ng_prop", MODE_PRIVATE);
         String baseUrl = pref.getString("ek313", null);
         String apiKey = pref.getString("313ke", null);
-        if (!TextUtils.isEmpty(baseUrl) && !TextUtils.isEmpty(apiKey)) {
-            Netmera.setBaseUrl(baseUrl);
-            Netmera.setApiKey(apiKey);
-            return;
-        }
+//        if (!TextUtils.isEmpty(baseUrl) && !TextUtils.isEmpty(apiKey)) {
+//            Netmera.setBaseUrl(baseUrl);
+//            Netmera.setApiKey(apiKey);
+//            return;
+//        }
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog_properties, null);
@@ -104,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String baseUrl = editTextBaseUrl.getText().toString();
                 String apiKey = editTextApiKey.getText().toString();
 
-                Netmera.setBaseUrl(baseUrl);
-                Netmera.setApiKey(apiKey);
+//                Netmera.setBaseUrl(baseUrl);
+//                Netmera.setApiKey(apiKey);
 
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("ek313", baseUrl);
@@ -120,85 +123,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         dialogBuilder.setCancelable(false);
 
-        final AlertDialog alertDialog = dialogBuilder.create();
-        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override public void onShow(DialogInterface dialog) {
-                final Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-                positiveButton.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override public boolean onLongClick(View v) {
-                        String baseUrl = editTextBaseUrl.getText().toString();
-                        String apiKey = editTextApiKey.getText().toString();
-                        if (baseUrl.equals("a") && apiKey.equals("a")) {
-                            editTextApiKey.setText(PropertiesUtil.netmeraApiKey);
-                            editTextBaseUrl.setText(PropertiesUtil.netmeraUrl);
-                        }
-                        return true;
-                    }
-                });
-                positiveButton.setEnabled(false);
-                editTextApiKey.addTextChangedListener(new TextWatcher() {
-                    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override public void afterTextChanged(Editable s) {
-                        if (s.length() > 0 && editTextBaseUrl.getText().length() > 0) {
-                            positiveButton.setEnabled(true);
-                        } else {
-                            positiveButton.setEnabled(false);
-                        }
-                    }
-                });
-                editTextBaseUrl.addTextChangedListener(new TextWatcher() {
-                    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override public void afterTextChanged(Editable s) {
-                        if (s.length() > 0 && editTextApiKey.getText().length() > 0) {
-                            positiveButton.setEnabled(true);
-                        } else {
-                            positiveButton.setEnabled(false);
-                        }
-                    }
-                });
-            }
-        });
-        alertDialog.show();
+//        final AlertDialog alertDialog = dialogBuilder.create();
+//        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+//            @Override public void onShow(DialogInterface dialog) {
+//                final Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+//                positiveButton.setOnLongClickListener(new View.OnLongClickListener() {
+//                    @Override public boolean onLongClick(View v) {
+//                        String baseUrl = editTextBaseUrl.getText().toString();
+//                        String apiKey = editTextApiKey.getText().toString();
+//                        if (baseUrl.equals("a") && apiKey.equals("a")) {
+//                            editTextApiKey.setText(PropertiesUtil.netmeraApiKey);
+//                            editTextBaseUrl.setText(PropertiesUtil.netmeraUrl);
+//                        }
+//                        return true;
+//                    }
+//                });
+//                positiveButton.setEnabled(false);
+//                editTextApiKey.addTextChangedListener(new TextWatcher() {
+//                    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                    }
+//
+//                    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                    }
+//
+//                    @Override public void afterTextChanged(Editable s) {
+//                        if (s.length() > 0 && editTextBaseUrl.getText().length() > 0) {
+//                            positiveButton.setEnabled(true);
+//                        } else {
+//                            positiveButton.setEnabled(false);
+//                        }
+//                    }
+//                });
+//                editTextBaseUrl.addTextChangedListener(new TextWatcher() {
+//                    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                    }
+//
+//                    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                    }
+//
+//                    @Override public void afterTextChanged(Editable s) {
+//                        if (s.length() > 0 && editTextApiKey.getText().length() > 0) {
+//                            positiveButton.setEnabled(true);
+//                        } else {
+//                            positiveButton.setEnabled(false);
+//                        }
+//                    }
+//                });
+//            }
+//        });
+//        alertDialog.show();
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.updateUser){
-            NetmeraUser user = new NetmeraUser();
-            user.setUserId("soykalburak");
-            user.setName("Burak");
-            user.setSurname("Soykal");
-            user.setEmail("soykalburak@gmail.com");
-            Netmera.updateUser(user);
-        }else if(v.getId()==R.id.fcm_custom_event){
-            int nextRandom = new Random().nextInt(3)+1;
-            FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_"+nextRandom,null );
-        }else if(v.getId()==R.id.show_img){
-            if(!downloaded){
-            GlideApp.with(this)
-                    .load("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg")
-                    .fitCenter()
-                    .into(test_img);
-
-            downloaded = true;
-            }else{
-                test_img.setImageDrawable(null);
-                downloaded = false;
-            }
-        }
+//        if(v.getId()==R.id.updateUser){
+//            NetmeraUser user = new NetmeraUser();
+//            user.setUserId("soykalburak");
+//            user.setName("Burak");
+//            user.setSurname("Soykal");
+//            user.setEmail("soykalburak@gmail.com");
+//            Netmera.updateUser(user);
+//        }else if(v.getId()==R.id.fcm_custom_event){
+//            int nextRandom = new Random().nextInt(3)+1;
+//            FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_"+nextRandom,null );
+//        }else if(v.getId()==R.id.show_img){
+//            if(!downloaded){
+//            GlideApp.with(this)
+//                    .load("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg")
+//                    .fitCenter()
+//                    .into(test_img);
+//
+//            downloaded = true;
+//            }else{
+//                test_img.setImageDrawable(null);
+//                downloaded = false;
+//            }
+//        }
     }
 }

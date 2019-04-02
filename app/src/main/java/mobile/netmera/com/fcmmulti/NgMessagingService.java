@@ -1,6 +1,6 @@
 package mobile.netmera.com.fcmmulti;
 
-import android.support.annotation.NonNull;
+
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,13 +21,13 @@ public class NgMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        if (Netmera.isNetmeraRemoteMessage(remoteMessage)) {
-            Log.i("NM MESSAGE", "NM MESSAGE RECEIVED");
-            Netmera.onNetmeraPushMessageReceived(remoteMessage);
-        } else {
-            EventBus.getDefault().post(new MessageEvent(remoteMessage.getNotification().getBody()));
-            Log.i("FCM MESSAGE", "FCM MESSAGE :: " + remoteMessage.getNotification().getBody());
-        }
+//        if (Netmera.isNetmeraRemoteMessage(remoteMessage)) {
+//            Log.i("NM MESSAGE", "NM MESSAGE RECEIVED");
+//            Netmera.onNetmeraPushMessageReceived(remoteMessage);
+//        } else {
+//            EventBus.getDefault().post(new MessageEvent(remoteMessage.getNotification().getBody()));
+//            Log.i("FCM MESSAGE", "FCM MESSAGE :: " + remoteMessage.getNotification().getBody());
+//        }
     }
 
     @Override
@@ -41,7 +41,7 @@ public class NgMessagingService extends FirebaseMessagingService {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 Log.e("Secondary Token", "Secondary Firebase Token  :: " + instanceIdResult.getToken());
-                Netmera.onNetmeraNewToken(instanceIdResult.getToken());
+//                Netmera.onNetmeraNewToken(instanceIdResult.getToken());
             }
         });
 
