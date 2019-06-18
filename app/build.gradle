@@ -29,7 +29,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:17.5.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'com.netmera:netmera:3.6.5-beta3.285'
+    implementation 'com.netmera:netmera:3.6.5-beta4.285'
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     implementation 'com.github.bumptech.glide:glide:4.9.0'
