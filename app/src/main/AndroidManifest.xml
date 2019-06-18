@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mobile.netmera.com.fcmmulti">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <meta-data
         android:name=".MyAppGlideModule"
         android:value="GlideModule" />
     <meta-data
         android:name="com.google.android.gms.ads.APPLICATION_ID"
-        android:value="ca-pub-2925570923738636"/>
-
+        android:value="ca-pub-2925570923738636" />
 
     <application
         android:name=".App"
@@ -21,17 +20,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
-
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".SecondaryApiKeyTestActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-
+        <receiver
+            android:name=".NGPushBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.netmera.push.intent.REGISTER" />
+                <action android:name="com.netmera.push.intent.RECEIVE" />
+                <action android:name="com.netmera.push.intent.OPEN" />
+                <action android:name="com.netmera.push.intent.DISMISS" />
+                <action android:name="com.netmera.push.intent.BUTTON" />
+                <action android:name="com.netmera.push.intent.carousel.OPEN" />
+                <action android:name="com.netmera.push.intent.carousel.PREV" />
+                <action android:name="com.netmera.push.intent.carousel.NEXT" />
+                <action android:name="com.netmera.push.intent.carousel.ITEM" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

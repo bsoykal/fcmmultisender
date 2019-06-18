@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     defaultConfig {
         applicationId "mobile.netmera.com.fcmmulti"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -21,76 +21,23 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation 'com.android.support:appcompat-v7:27.1.1'
-//    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-//    implementation 'com.google.firebase:firebase-core:16.0.8'
-//    implementation 'com.google.firebase:firebase-messaging:17.5.0'
-//    implementation 'com.google.android.gms:play-services-location:16.0.0'
-//    implementation 'com.netmera:netmera:3.6.3-beta1.276'
-//    implementation 'org.greenrobot:eventbus:3.1.1'
-//
-//    implementation 'com.github.bumptech.glide:glide:4.9.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.5.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.netmera:netmera:3.6.5-beta3.285'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
 
     /*#################################################################*/
 
-
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    implementation 'com.android.support:multidex:1.0.3'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'org.jsoup:jsoup:1.11.3'
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
-    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-    implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
-    implementation 'io.supercharge:shimmerlayout:2.1.0'
-    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
-    implementation 'com.github.vivchar:ViewPagerIndicator:1.1.0'
-
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-
-    //push notf+
-    implementation 'com.netmera:netmera:3.6.3-beta1'
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-messaging:17.5.0'
-
-    //admob && tag manager google analytics
-    implementation 'com.google.android.gms:play-services-ads:17.2.0'
-    implementation 'com.google.android.gms:play-services-analytics:16.0.8'
-    implementation 'com.google.android.gms:play-services-tagmanager-v4-impl:16.0.8'
-
-    //  eventbus
-    implementation 'org.greenrobot:eventbus:3.1.1'
-
-
-    //  list library
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-
-    //  service
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
-    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-
-    //  save data
-    implementation "com.orhanobut:hawk:2.0.1"
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.2@aar') {
-        transitive = true;
-    }
 
 }
 

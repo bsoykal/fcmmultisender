@@ -22,18 +22,18 @@ public class App extends Application {
         super.onCreate();
         PropertiesUtil.init(this, false);
         initLegacyData();
-//        Netmera.logging(true);
+        Netmera.logging(true);
 
-//        FirebaseOptions options = new FirebaseOptions.Builder()
-//                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
-//                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
-//                .build();
-//        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
-//        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
+                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
+                .build();
+        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
+        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
 
-//        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
+        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
 
-      //  Netmera.init(this,PropertiesUtil.gcmSenderId,null);
+//        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
 //        Netmera.init(this,"561248270199",null);
 
         setNetmeraApiKeyIfHasBeenProvidedBefore();
@@ -53,8 +53,8 @@ public class App extends Application {
         String baseUrl = pref.getString("ek313", null);
         String apiKey = pref.getString("313ke", null);
         if (!TextUtils.isEmpty(baseUrl) && !TextUtils.isEmpty(apiKey)) {
-//            Netmera.setBaseUrl(baseUrl);
-//            Netmera.setApiKey(apiKey);
+            Netmera.setBaseUrl(baseUrl);
+            Netmera.setApiKey(apiKey);
         }
     }
 
