@@ -5,10 +5,19 @@ android {
     defaultConfig {
         applicationId "mobile.netmera.com.fcmmulti"
         minSdkVersion 16
+<<<<<<< HEAD
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+=======
+        targetSdkVersion 27
+        versionCode 2
+        versionName "3.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        resValue "bool", "netmera_use_default_push_receiver", "false"
+>>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
     }
     buildTypes {
         release {
@@ -20,6 +29,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+<<<<<<< HEAD
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
  //   testImplementation 'junit:junit:4.12'
@@ -30,6 +40,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:18.0.0'
 
     implementation 'com.netmera:netmera:3.8.1-beta1.393'
+=======
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.5.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.netmera:netmera:3.6.8-beta1.293'
+>>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
     implementation 'org.greenrobot:eventbus:3.1.1'
 
    // implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -60,3 +81,5 @@ repositories {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.huawei.agconnect'

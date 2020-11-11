@@ -24,6 +24,7 @@ public class App extends Application {
         initLegacyData();
         Netmera.logging(true);
 
+<<<<<<< HEAD
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setProjectId("fcmmulti")
           //      .setGcmSenderId("561248270199")
@@ -36,6 +37,16 @@ public class App extends Application {
 //
       Netmera.init(this,"561248270199","M7cD_ufTmu722aJMr1uvm-FWdqyViz-2LPUqh6V13w1A9ewqiuTgrReoG49Y6e_I",secondaryApp);
 
+=======
+//        FirebaseOptions options = new FirebaseOptions.Builder()
+//                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
+//                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
+//                .build();
+//        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
+//        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+
+        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
+>>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
 
 //        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
 //        Netmera.init(this,"561248270199",null);

@@ -3,7 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mobile.netmera.com.fcmmulti">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET"/>
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+>>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
 
     <meta-data
         android:name=".MyAppGlideModule"
