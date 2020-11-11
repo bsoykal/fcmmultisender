@@ -21,14 +21,17 @@ public class NgMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-//        if (Netmera.isNetmeraRemoteMessage(remoteMessage)) {
-//            Log.i("NM MESSAGE", "NM MESSAGE RECEIVED");
-//            Netmera.onNetmeraPushMessageReceived(remoteMessage);
-//        } else {
+        if (Netmera.isNetmeraRemoteMessage(remoteMessage)) {
+            Log.i("NM MESSAGE", "NM MESSAGE RECEIVED");
+            Netmera.onNetmeraPushMessageReceived(remoteMessage);
+        }
+
+    }
+//        else {
 //            EventBus.getDefault().post(new MessageEvent(remoteMessage.getNotification().getBody()));
 //            Log.i("FCM MESSAGE", "FCM MESSAGE :: " + remoteMessage.getNotification().getBody());
 //        }
-    }
+//    }
 
     @Override
     public void onNewToken(String token) {
