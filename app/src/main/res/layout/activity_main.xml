@@ -49,6 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" download img"
+            android:layout_above="@+id/start_second_activity"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/start_second_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Secondary API key"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
