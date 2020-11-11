@@ -2,21 +2,30 @@ package mobile.netmera.com.fcmmulti;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.netmera.Netmera;
 import com.netmera.NetmeraUser;
 
@@ -48,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null);
 
         setApiInfo();
+
+
 
         messages = (TextView)findViewById(R.id.messages);
         updateUser = (AppCompatButton)findViewById(R.id.updateUser);
@@ -172,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
             }
         });
-        alertDialog.show();
+      //  alertDialog.show();
     }
 
     @Override
@@ -185,20 +196,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             user.setEmail("soykalburak@gmail.com");
             Netmera.updateUser(user);
         }else if(v.getId()==R.id.fcm_custom_event){
+            FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+                @Override
+                public void onComplete(@NonNull Task<String> task) {
+
+
+                if (!task.isSuccessful()){
+                    Log.e("burakurus", "onComplete: Primary task is not successful" );
+                }
+                else{
+                    Log.e("Primary Token", "Primary Firebase Token  :: " + task.getResult());
+
+                }
+                }
+            });
+
+            FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+        FirebaseInstallations.getInstance(secondaryApp).getToken(false).addOnCompleteListener(new OnCompleteListener<InstallationTokenResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstallationTokenResult> task) {
+                if (!task.isSuccessful()){
+                    Log.e("burakurus", "onComplete: Secondary task is not successful" );
+                }
+                else{
+                    Log.e("Secondary Token", "Secondary Firebase Token  :: " + task.getResult().getToken());
+
+                }
+            }
+        });
+
             int nextRandom = new Random().nextInt(3)+1;
             FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_"+nextRandom,null );
-        }else if(v.getId()==R.id.show_img){
-            if(!downloaded){
-            GlideApp.with(this)
-                    .load("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg")
-                    .fitCenter()
-                    .into(test_img);
-
-            downloaded = true;
-            }else{
-                test_img.setImageDrawable(null);
-                downloaded = false;
-            }
         }
     }
 }

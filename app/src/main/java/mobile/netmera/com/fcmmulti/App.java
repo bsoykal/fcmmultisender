@@ -24,19 +24,23 @@ public class App extends Application {
         initLegacyData();
         Netmera.logging(true);
 
-//        FirebaseOptions options = new FirebaseOptions.Builder()
-//                .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
-//                .setApiKey("AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk") // Required for Auth.
-//                .build();
-//        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
-//        FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setProjectId("fcmmulti")
+          //      .setGcmSenderId("561248270199")
+               .setApplicationId("1:561248270199:android:4548658facdfe54f") // Required for Analytics.
+               .setApiKey("AAAAgq0A93c:APA91bHCcC40Mq76bu_Iqzhfz5-CGGvUOcrzjqy95jl3WpsH-ffpSG-JTsVdEB-kQ3w_hVNyUPgXwv1uRFtc-qHZBWi_3rQWjbwuEq5lesAzwBcBs01QO1UwDLL8b4S84vT59CdC9m7v") // Required for Auth. //AIzaSyDXqFsZMoeFefVFSe9U8P2B9PEvNKP2ldk
+              .build();
+        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
 
-//        Netmera.init(this,PropertiesUtil.gcmSenderId,null,secondaryApp);
+       FirebaseApp secondaryApp = FirebaseApp.getInstance("secondary");
+//
+      Netmera.init(this,"561248270199","M7cD_ufTmu722aJMr1uvm-FWdqyViz-2LPUqh6V13w1A9ewqiuTgrReoG49Y6e_I",secondaryApp);
 
-        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
+
+//        Netmera.init(this,PropertiesUtil.gcmSenderId,null);
 //        Netmera.init(this,"561248270199",null);
-
-        setNetmeraApiKeyIfHasBeenProvidedBefore();
+//
+//        setNetmeraApiKeyIfHasBeenProvidedBefore();
 
         Log.i(TAG,"onCreate was called");
 

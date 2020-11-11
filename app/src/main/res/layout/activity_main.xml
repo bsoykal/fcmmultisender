@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/test_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/fcm_custom_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,14 +37,14 @@
             android:layout_above="@+id/updateUser"
             android:layout_marginBottom="3dp"/>
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/updateUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="update user"
             android:layout_above="@+id/show_img"/>
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/show_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
