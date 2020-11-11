@@ -27,22 +27,12 @@ static final String TAG = "NGMessagingService";
         if (Netmera.isNetmeraRemoteMessage(remoteMessage)) {
             Log.i("NM MESSAGE", "NM MESSAGE RECEIVED");
             Netmera.onNetmeraPushMessageReceived(remoteMessage);
-<<<<<<< HEAD
         } else {
             EventBus.getDefault().post(new MessageEvent(remoteMessage.getNotification().getBody()));
             Log.i("FCM MESSAGE", "FCM MESSAGE :: " + remoteMessage.getNotification().getBody());
         }
     }
-=======
-        }
 
-    }
-//        else {
-//            EventBus.getDefault().post(new MessageEvent(remoteMessage.getNotification().getBody()));
-//            Log.i("FCM MESSAGE", "FCM MESSAGE :: " + remoteMessage.getNotification().getBody());
-//        }
-//    }
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
 
     @Override
     public void onNewToken(String token) {

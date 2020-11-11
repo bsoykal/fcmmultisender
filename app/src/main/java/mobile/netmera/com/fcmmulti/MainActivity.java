@@ -10,17 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
+
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
-=======
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatImageView;
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -55,11 +48,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
-<<<<<<< HEAD
-=======
+
 import java.util.TimeZone;
 
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -85,31 +76,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setApiInfo();
 
-<<<<<<< HEAD
 
-
-        messages = (TextView)findViewById(R.id.messages);
-        updateUser = (AppCompatButton)findViewById(R.id.updateUser);
-        fcm_custom_event = (AppCompatButton)findViewById(R.id.fcm_custom_event);
-        show_img = (AppCompatButton)findViewById(R.id.show_img);
-=======
         messages = (TextView) findViewById(R.id.messages);
         updateUser = (AppCompatButton) findViewById(R.id.updateUser);
         fcm_custom_event = (AppCompatButton) findViewById(R.id.fcm_custom_event);
         show_img = (AppCompatButton) findViewById(R.id.show_img);
-        start_second_activity = (AppCompatButton) findViewById(R.id.start_second_activity);
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
+
 
         test_img = (AppCompatImageView) findViewById(R.id.test_img);
 
         updateUser.setOnClickListener(this);
         fcm_custom_event.setOnClickListener(this);
         show_img.setOnClickListener(this);
-<<<<<<< HEAD
-=======
-        start_second_activity.setOnClickListener(this);
 
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -254,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             user.setDateOfBirth(birthday);
 
             Netmera.updateUser(user);
-<<<<<<< HEAD
+
         }else if(v.getId()==R.id.fcm_custom_event){
             FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
                 @Override
@@ -287,25 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             int nextRandom = new Random().nextInt(3)+1;
             FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_"+nextRandom,null );
-=======
-        } else if (v.getId() == R.id.fcm_custom_event) {
-            int nextRandom = new Random().nextInt(3) + 1;
-            FirebaseAnalytics.getInstance(this).logEvent("RandomEvent1to3_" + nextRandom, null);
-        } else if (v.getId() == R.id.show_img) {
-            if (!downloaded) {
-                GlideApp.with(this)
-                        .load("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg")
-                        .fitCenter()
-                        .into(test_img);
 
-                downloaded = true;
-            } else {
-                test_img.setImageDrawable(null);
-                downloaded = false;
-            }
-        } else if (v.getId() == R.id.start_second_activity) {
-            startActivity(new Intent(this, SecondaryApiKeyTestActivity.class));
->>>>>>> 7450a317e81a228917e670c1fdfc2cbd6fde0b29
         }
     }
 }
